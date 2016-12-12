@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  FourViewController.h
 //  CopyWY
 //
 //  Created by abnerzhang on 16/8/18.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface FourViewController : UIViewController
 
 @end
-

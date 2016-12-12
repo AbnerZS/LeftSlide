@@ -6,7 +6,18 @@
 //  Copyright © 2016年 abnerzhang. All rights reserved.
 //
 
+/**
+ *  新建启动图片
+ *
+ *  1. 在Image.xcassets 中右击New Launch Image 其中 Portrait -- 竖屏 , Landscape -- 横屏
+ *  2. 拖入相应尺寸的图片
+ *  3. 在General里面设置, Lanch Images Source为LaunchImage, Lanch Screen File 为空
+ *  4. 删除LaunchScreen.storyboard(低版本为LaunchScreen.xib)
+ *  5. 运行即可, 如果遇到没有效果的情况, 建议删除app后重新运行
+ *  (设置启动图片停留时间: [NSThread sleepForTimeInterval:3.0];)
+ */
 #import "AppDelegate.h"
+#import "MainTabBarController.h"
 
 @interface AppDelegate ()
 
@@ -16,6 +27,11 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    MainTabBarController *tabBar = [[MainTabBarController alloc] init];
+    [self.window setRootViewController:tabBar];
+    [self.window makeKeyAndVisible];
+    [NSThread sleepForTimeInterval:3.0];
     // Override point for customization after application launch.
     return YES;
 }
